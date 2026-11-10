@@ -66,6 +66,7 @@ export class BooksController {
   @Delete(':id') // DELETE /api/books/1
   @HttpCode(204) // responde 204 (sin contenido) en vez de 200
   @UseGuards(AuthGuard, AdminGuard)
+  @ApiBearerAuth()
   remove(@Param('id', ParseIntPipe) id: number) {
     return this.booksService.remove(id);
   }
